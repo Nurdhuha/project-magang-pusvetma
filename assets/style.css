@@ -1,25 +1,3 @@
-/* Popup Kelembagaan khusus mobile */
-#mobile-kelembagaan-popup .bg-white {
-    background-color: #440670 !important;
-}
-#mobile-kelembagaan-popup .text-primary,
-#mobile-kelembagaan-popup .font-semibold,
-#mobile-kelembagaan-popup .block,
-#mobile-kelembagaan-popup .text-lg {
-    color: #fff !important;
-}
-#mobile-kelembagaan-popup i,
-#mobile-kelembagaan-popup button {
-    color: #fff !important;
-    fill: #fff !important;
-}
-#mobile-kelembagaan-popup a {
-    color: #fff !important;
-}
-#mobile-kelembagaan-popup a:hover {
-    background-color: #750098 !important;
-    color: #FFD91F !important;
-}
 body {
             font-family: 'Inter', sans-serif;
             background-color: #FFFFFF;
@@ -32,7 +10,7 @@ body {
             line-height: 1;
         }
         
-        /* Modern color palette with improved readability */
+        /* Color palette */
         .bg-primary { background-color: #440670; }
         .bg-secondary { background-color: #750098; }
         .bg-accent { background-color: #FFD91F; }
@@ -236,32 +214,24 @@ header#header {
     }
 }
 
-/* Animasi smooth untuk popup mobile */
+/* Animasi smooth untuk popup mobile (disederhanakan) */
 .show {
     display: flex !important;
     opacity: 1 !important;
-    transform: scale(1);
-    transition: opacity 0.35s, transform 0.35s;
+    transform: translateY(0);
 }
 .hide {
     opacity: 0 !important;
     pointer-events: none;
-    transform: scale(0.95);
-    transition: opacity 0.35s, transform 0.35s;
-}
-.bg-white { animation: popupIn 0.3s cubic-bezier(.4,0,.2,1); }
-.center-margin { margin: auto; }
-@keyframes popupIn {
-        from { opacity: 0; transform: scale(0.95);}
-        to { opacity: 1; transform: scale(1);}
+    transform: translateY(10px);
 }
 
-/* Tambahkan di bagian bawah file CSS */
+/* Backdrop untuk popup mobile */
 .mobile-popup-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(30, 27, 75, 0.55); /* warna gelap transparan */
-    z-index: 49; /* di bawah popup, di atas konten */
+    background: rgba(30, 27, 75, 0.55);
+    z-index: 49;
     transition: opacity 0.3s;
     opacity: 1;
     pointer-events: auto;
@@ -270,9 +240,78 @@ header#header {
     opacity: 0;
     pointer-events: none;
 }
-.mobile-popup-backdrop,
-.fixed.inset-0.flex.items-center.justify-center.z-50 {
+
+/* Styling khusus untuk popup mobile (Profil, Standar, Layanan, dsb) */
+#mobile-profil-popup,
+#mobile-kelembagaan-popup,
+#mobile-standar-popup,
+#mobile-layanan-popup,
+#mobile-intern-popup,
+#mobile-publikasi-popup,
+#mobile-informasi-popup,
+#mobile-siaga-popup,
+#mobile-kontak-popup {
+    width: 20rem;
+    max-width: 100%;
+    max-height: 80vh;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #440670;
     transition: opacity 0.35s, transform 0.35s;
+}
+
+/* Saat popup mobile terbuka, tombol header non-popup dinonaktifkan */
+header#header.popup-open {
+    pointer-events: none;
+}
+header#header.popup-open .fixed {
+    pointer-events: auto;
+}
+
+/* Aturan navigasi mobile */
+#mobile-nav ul li a {
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    display: block;
+    transition: background 0.3s;
+}
+#mobile-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Styling khusus untuk popup mobile (Profil, Standar, Layanan, dsb) */
+#mobile-profil-popup,
+#mobile-kelembagaan-popup,
+#mobile-standar-popup,
+#mobile-layanan-popup,
+#mobile-intern-popup,
+#mobile-publikasi-popup,
+#mobile-informasi-popup,
+#mobile-siaga-popup,
+#mobile-kontak-popup {
+    width: 20rem;
+    max-width: 100%;
+    max-height: 80vh;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: #FFF;
+    transition: transform 0.35s, opacity 0.35s;
+}
+
+/* Tombol kembali pada submenu mobile (Kelembagaan) */
+#mobile-kelembagaan-back {
+    /* Sesuaikan ukuran dan warna tombol kembali jika perlu */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Optional: sesuaikan style konten header submenu mobile agar konsisten */
+.flex.items-center.justify-between.mb-4 {
+    border-bottom: 1px solid #E5E7EB;
+    padding-bottom: 0.5rem;
 }
 
 /* ===== Submenu level-2: Kelembagaan (kanan) ===== */
