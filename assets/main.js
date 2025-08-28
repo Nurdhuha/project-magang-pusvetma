@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     lucide.createIcons();
 
-    // Mobile Menu Toggle (Tidak ada perubahan, sudah benar)
+    // Mobile Menu Toggle (Tidak ada perubahan)
     var mobileMenuButton = document.getElementById('mobile-menu-button');
     var mobileMenu = document.getElementById('mobile-menu');
     if (mobileMenuButton && mobileMenu) {
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Desktop Dropdown (Tidak ada perubahan, sudah benar)
+    // Desktop Dropdown (Tidak ada perubahan)
     function setupPopupMenu(btnId, menuId, navId) {
         const btn = document.getElementById(btnId);
         const menu = document.getElementById(menuId);
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setupPopupMenu(`${name}-btn`, `${name}-menu`, `nav-${name}`);
     });
 
-    // Header scroll effect (Tidak ada perubahan, sudah benar)
+    // Header scroll effect (Tidak ada perubahan)
     const header = document.getElementById('header');
     if (header) {
         window.addEventListener('scroll', () => {
@@ -76,24 +76,31 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = ''; // Enable scroll
     }
 
-    // Listener global untuk menutup popup
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeAllPopups();
     });
     
     backdrop.addEventListener('click', closeAllPopups);
 
-    // Fungsi untuk membuka popup spesifik
-    function openPopup(popupElement) {
-        if (!popupElement) return;
-        closeAllPopups(); // Pastikan semua yang lain tertutup dulu
-        popupElement.classList.remove('hidden', 'hide');
-        popupElement.classList.add('show');
+    // PERBAIKAN: Fungsi openPopup yang lebih robust
+    function openPopup(popupToOpen) {
+        if (!popupToOpen) return;
+
+        // Langsung tutup semua popup lain secara sinkron
+        allPopups.forEach(p => {
+            if (p !== popupToOpen) {
+                p.classList.remove('show');
+                p.classList.add('hidden');
+            }
+        });
+        
+        // Buka popup yang dituju
+        popupToOpen.classList.remove('hidden', 'hide');
+        popupToOpen.classList.add('show');
         backdrop.classList.remove('hide');
         document.body.style.overflow = 'hidden'; // Disable scroll
     }
     
-    // Pasang event listener ke semua tombol pembuka popup utama
     ['profil', 'standar', 'layanan', 'intern', 'publikasi', 'informasi', 'siaga', 'kontak'].forEach(name => {
         const btn = document.getElementById(`mobile-${name}-btn`);
         const popup = document.getElementById(`mobile-${name}-popup`);
@@ -119,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 from.classList.add('hidden');
                 to.classList.remove('hidden', 'hide');
                 to.classList.add('show');
-            }, 350); // Menunggu animasi selesai
+            }, 350);
         }
 
         kelembagaanBtn.addEventListener('click', (e) => {
