@@ -1,21 +1,23 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     lucide.createIcons();
-
-    // Mobile Menu Toggle (Tidak ada perubahan)
+    
+    // Mobile Menu Toggle
     var mobileMenuButton = document.getElementById('mobile-menu-button');
-    var mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenuButton && mobileMenu) {
+    var mobileNav = document.getElementById('mobile-nav');
+    if (mobileMenuButton && mobileNav) {
         mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            mobileNav.classList.toggle('hidden');
         });
         document.addEventListener('mousedown', function(e) {
-            if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
+            if (!mobileNav.classList.contains('hidden') &&
+                !mobileNav.contains(e.target) &&
+                !mobileMenuButton.contains(e.target)) {
+                mobileNav.classList.add('hidden');
             }
         });
     }
-
-    // Desktop Dropdown (Tidak ada perubahan)
+    
+    // Desktop Dropdown (tidak ada perubahan)
     function setupPopupMenu(btnId, menuId, navId) {
         const btn = document.getElementById(btnId);
         const menu = document.getElementById(menuId);
@@ -23,16 +25,32 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!btn || !menu || !nav) return;
         let closeTimer = null;
         const CLOSE_DELAY = 75;
-        function openMenu() { clearTimeout(closeTimer); nav.classList.add('menu-open'); btn.setAttribute('aria-expanded', 'true'); }
-        function closeMenu() { clearTimeout(closeTimer); nav.classList.remove('menu-open'); btn.setAttribute('aria-expanded', 'false'); }
-        function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(closeMenu, CLOSE_DELAY); }
+        function openMenu() {
+            clearTimeout(closeTimer);
+            nav.classList.add('menu-open');
+            btn.setAttribute('aria-expanded', 'true');
+        }
+        function closeMenu() {
+            clearTimeout(closeTimer);
+            nav.classList.remove('menu-open');
+            btn.setAttribute('aria-expanded', 'false');
+        }
+        function scheduleClose() {
+            clearTimeout(closeTimer);
+            closeTimer = setTimeout(closeMenu, CLOSE_DELAY);
+        }
         nav.addEventListener('pointerenter', openMenu);
         nav.addEventListener('pointerleave', scheduleClose);
         menu.addEventListener('pointerenter', openMenu);
         menu.addEventListener('pointerleave', scheduleClose);
         btn.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') { closeMenu(); btn.focus(); }
-            if (e.key === 'ArrowDown') { e.preventDefault(); openMenu(); const first = menu.querySelector('a, button'); first && first.focus(); }
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                openMenu();
+                const first = menu.querySelector('a, button');
+                first && first.focus();
+            }
         });
         menu.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeMenu(); btn.focus(); } });
         nav.addEventListener('focusin', openMenu);
@@ -42,18 +60,21 @@ document.addEventListener('DOMContentLoaded', function() {
     ['profil', 'standar', 'layanan', 'intern', 'publikasi', 'informasi', 'kontak', 'siaga'].forEach(name => {
         setupPopupMenu(`${name}-btn`, `${name}-menu`, `nav-${name}`);
     });
-
-    // Header scroll effect (Tidak ada perubahan)
+    
+    // Header scroll effect
     const header = document.getElementById('header');
     if (header) {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) header.classList.add('shadow-large');
-            else header.classList.remove('shadow-large');
+            if (window.scrollY > 50)
+                header.classList.add('shadow-large');
+            else
+                header.classList.remove('shadow-large');
         });
     }
-
-    // --- LOGIKA POPUP MOBILE BARU YANG TERPUSAT ---
-
+    
+    // --- LOGIKA POPUP MOBILE TERPUSAT ---
+    
+    // Buat backdrop popup (jika belum ada)
     const backdrop = document.getElementById('mobile-popup-backdrop') || (() => {
         const bd = document.createElement('div');
         bd.id = 'mobile-popup-backdrop';
@@ -61,81 +82,98 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(bd);
         return bd;
     })();
-
+    
     const allPopups = document.querySelectorAll('.fixed.inset-0.z-50');
-
-    function closeAllPopups() {
-        allPopups.forEach(popup => {
-            if (popup.classList.contains('show')) {
-                popup.classList.remove('show');
-                popup.classList.add('hide');
-                setTimeout(() => popup.classList.add('hidden'), 350);
-            }
-        });
-        backdrop.classList.add('hide');
-        document.body.style.overflow = ''; // Enable scroll
-    }
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeAllPopups();
-    });
     
-    backdrop.addEventListener('click', closeAllPopups);
-
-    // PERBAIKAN: Fungsi openPopup yang lebih robust
-    function openPopup(popupToOpen) {
-        if (!popupToOpen) return;
-
-        // Langsung tutup semua popup lain secara sinkron
-        allPopups.forEach(p => {
-            if (p !== popupToOpen) {
-                p.classList.remove('show');
-                p.classList.add('hidden');
-            }
-        });
-        
-        // Buka popup yang dituju
-        popupToOpen.classList.remove('hidden', 'hide');
-        popupToOpen.classList.add('show');
+    function closePopup(popup) {
+        popup.classList.remove('show');
+        popup.classList.add('hide');
+        setTimeout(() => popup.classList.add('hidden'), 350);
+        // Jika tidak ada popup lain terbuka, enable scroll & tombol header kembali aktif
+        const anyOpen = Array.from(allPopups).some(p => p.classList.contains('show'));
+        if (!anyOpen) {
+            backdrop.classList.add('hide');
+            document.body.style.overflow = '';
+            header && header.classList.remove('popup-open');
+        }
+    }
+    
+    function openPopup(popup) {
+        if (!popup) return;
+        popup.classList.remove('hidden', 'hide');
+        popup.classList.add('show');
         backdrop.classList.remove('hide');
-        document.body.style.overflow = 'hidden'; // Disable scroll
+        document.body.style.overflow = 'hidden';
+        header && header.classList.add('popup-open'); // Disable tombol header
     }
     
+    // Set up popup mobile untuk menu utama (misal: profil, standar, dll)
     ['profil', 'standar', 'layanan', 'intern', 'publikasi', 'informasi', 'siaga', 'kontak'].forEach(name => {
         const btn = document.getElementById(`mobile-${name}-btn`);
         const popup = document.getElementById(`mobile-${name}-popup`);
         if (btn && popup) {
-            btn.addEventListener('click', (e) => {
+            btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 openPopup(popup);
             });
         }
     });
-
-    // Penanganan khusus untuk beralih antara popup Profil dan Kelembagaan
-    const profilPopup = document.getElementById('mobile-profil-popup');
-    const kelembagaanPopup = document.getElementById('mobile-kelembagaan-popup');
+    
+    // Logika untuk submenu Kelembagaan dalam menu Profil mobile
     const kelembagaanBtn = document.getElementById('mobile-kelembagaan-btn');
+    const kelembagaanPopup = document.getElementById('mobile-kelembagaan-popup');
     const kelembagaanBack = document.getElementById('mobile-kelembagaan-back');
-
-    if (profilPopup && kelembagaanPopup && kelembagaanBtn && kelembagaanBack) {
-        function switchPopup(from, to) {
-            from.classList.remove('show');
-            from.classList.add('hide');
-            setTimeout(() => {
-                from.classList.add('hidden');
-                to.classList.remove('hidden', 'hide');
-                to.classList.add('show');
-            }, 350);
-        }
-
-        kelembagaanBtn.addEventListener('click', (e) => {
+    if (kelembagaanBtn && kelembagaanPopup && kelembagaanBack) {
+        kelembagaanBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            switchPopup(profilPopup, kelembagaanPopup);
+            e.stopPropagation();
+            openPopup(kelembagaanPopup);
         });
-
-        kelembagaanBack.addEventListener('click', () => {
-            switchPopup(kelembagaanPopup, profilPopup);
+    
+        // Tombol kembali hanya menutup submenu Kelembagaan saja
+        kelembagaanBack.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closePopup(kelembagaanPopup);
+        });
+    
+        // Klik di luar area submenu Kelembagaan menutup submenu
+        document.addEventListener('mousedown', function(e) {
+            if (
+                kelembagaanPopup.classList.contains('show') &&
+                !kelembagaanPopup.contains(e.target) &&
+                !kelembagaanBtn.contains(e.target)
+            ) {
+                closePopup(kelembagaanPopup);
+            }
+        });
+    
+        // Tombol Escape hanya menutup submenu Kelembagaan
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && kelembagaanPopup.classList.contains('show')) {
+                e.stopPropagation();
+                closePopup(kelembagaanPopup);
+            }
         });
     }
+    
+    // Global keydown: tutup popup non-submenu jika tidak ada interaksi khusus
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            allPopups.forEach(p => {
+                if (p.id !== 'mobile-kelembagaan-popup' && p.classList.contains('show')) {
+                    closePopup(p);
+                }
+            });
+        }
+    });
+    
+    backdrop.addEventListener('click', function(e) {
+        // Tutup semua popup kecuali submenu Kelembagaan (agar menu Profil tidak tertutup)
+        allPopups.forEach(p => {
+            if (p.id !== 'mobile-kelembagaan-popup' && p.classList.contains('show')) {
+                closePopup(p);
+            }
+        });
+    });
 });
