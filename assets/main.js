@@ -1,74 +1,49 @@
 document.addEventListener('DOMContentLoaded', function() {
     lucide.createIcons();
 
-    // Mobile Menu Toggle
+    // Mobile Menu Toggle (Tidak ada perubahan, sudah benar)
     var mobileMenuButton = document.getElementById('mobile-menu-button');
     var mobileMenu = document.getElementById('mobile-menu');
     if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-
         document.addEventListener('mousedown', function(e) {
-            if (!mobileMenu.classList.contains('hidden') &&
-                !mobileMenu.contains(e.target) &&
-                !mobileMenuButton.contains(e.target)
-            ) {
+            if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
                 mobileMenu.classList.add('hidden');
             }
         });
     }
 
-    // Desktop Dropdown
+    // Desktop Dropdown (Tidak ada perubahan, sudah benar)
     function setupPopupMenu(btnId, menuId, navId) {
         const btn = document.getElementById(btnId);
         const menu = document.getElementById(menuId);
         const nav = document.getElementById(navId);
         if (!btn || !menu || !nav) return;
-
         let closeTimer = null;
         const CLOSE_DELAY = 75;
-
         function openMenu() { clearTimeout(closeTimer); nav.classList.add('menu-open'); btn.setAttribute('aria-expanded', 'true'); }
         function closeMenu() { clearTimeout(closeTimer); nav.classList.remove('menu-open'); btn.setAttribute('aria-expanded', 'false'); }
         function scheduleClose() { clearTimeout(closeTimer); closeTimer = setTimeout(closeMenu, CLOSE_DELAY); }
-
         nav.addEventListener('pointerenter', openMenu);
         nav.addEventListener('pointerleave', scheduleClose);
         menu.addEventListener('pointerenter', openMenu);
         menu.addEventListener('pointerleave', scheduleClose);
-
         btn.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') { closeMenu(); btn.focus(); }
-            if (e.key === 'ArrowDown') {
-                e.preventDefault();
-                openMenu();
-                const first = menu.querySelector('a, button');
-                first && first.focus();
-            }
+            if (e.key === 'ArrowDown') { e.preventDefault(); openMenu(); const first = menu.querySelector('a, button'); first && first.focus(); }
         });
-        menu.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') { closeMenu(); btn.focus(); }
-        });
-
+        menu.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeMenu(); btn.focus(); } });
         nav.addEventListener('focusin', openMenu);
         nav.addEventListener('focusout', scheduleClose);
-
-        document.addEventListener('click', (e) => {
-            if (!nav.contains(e.target)) closeMenu();
-        });
+        document.addEventListener('click', (e) => { if (!nav.contains(e.target)) closeMenu(); });
     }
+    ['profil', 'standar', 'layanan', 'intern', 'publikasi', 'informasi', 'kontak', 'siaga'].forEach(name => {
+        setupPopupMenu(`${name}-btn`, `${name}-menu`, `nav-${name}`);
+    });
 
-    setupPopupMenu('profil-btn', 'profil-menu', 'nav-profil');
-    setupPopupMenu('standar-btn', 'standar-menu', 'nav-standar');
-    setupPopupMenu('layanan-btn', 'layanan-menu', 'nav-layanan');
-    setupPopupMenu('intern-btn', 'intern-menu', 'nav-intern');
-    setupPopupMenu('publikasi-btn', 'publikasi-menu', 'nav-publikasi');
-    setupPopupMenu('informasi-btn', 'informasi-menu', 'nav-informasi');
-    setupPopupMenu('kontak-btn', 'kontak-menu', 'nav-kontak');
-    setupPopupMenu('siaga-btn', 'siaga-menu', 'nav-siaga');
-
-    // Header scroll effect
+    // Header scroll effect (Tidak ada perubahan, sudah benar)
     const header = document.getElementById('header');
     if (header) {
         window.addEventListener('scroll', () => {
@@ -77,104 +52,82 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Mobile Popup Function
-    function setupMobilePopup(btnId, popupId, popupContentId) {
-        const btn = document.getElementById(btnId);
-        const popup = document.getElementById(popupId);
-        const popupContent = document.getElementById(popupContentId);
+    // --- LOGIKA POPUP MOBILE BARU YANG TERPUSAT ---
 
-        let backdrop = document.getElementById('mobile-popup-backdrop');
-        if (!backdrop) {
-            backdrop = document.createElement('div');
-            backdrop.id = 'mobile-popup-backdrop';
-            backdrop.className = 'mobile-popup-backdrop hide';
-            document.body.appendChild(backdrop);
-        }
+    const backdrop = document.getElementById('mobile-popup-backdrop') || (() => {
+        const bd = document.createElement('div');
+        bd.id = 'mobile-popup-backdrop';
+        bd.className = 'mobile-popup-backdrop hide';
+        document.body.appendChild(bd);
+        return bd;
+    })();
 
-        if (!btn || !popup || !popupContent) return;
+    const allPopups = document.querySelectorAll('.fixed.inset-0.z-50');
 
-        function disableScroll() { document.body.style.overflow = 'hidden'; }
-        function enableScroll() { document.body.style.overflow = ''; }
-
-        // Fungsi terpusat untuk membuka popup
-        function openPopup(p) {
-            p.classList.remove('hidden', 'hide');
-            p.classList.add('show');
-            backdrop.classList.remove('hide');
-            disableScroll();
-        }
-
-        // Fungsi terpusat untuk menutup semua popup
-        function closeAllPopups() {
-            document.querySelectorAll('.fixed.inset-0.z-50').forEach(p => {
-                p.classList.remove('show');
-                p.classList.add('hide');
-                setTimeout(() => p.classList.add('hidden'), 350);
-            });
-            backdrop.classList.add('hide');
-            enableScroll();
-        }
-
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openPopup(popup);
-        });
-
-        document.addEventListener('mousedown', (e) => {
-            const anyPopupShown = document.querySelector('.fixed.inset-0.z-50.show');
-            if (!anyPopupShown) return;
-
-            const isClickOnBackdrop = e.target === backdrop;
-            const activePopupContent = anyPopupShown.querySelector('.bg-white');
-            const isClickOutside = activePopupContent ? !activePopupContent.contains(e.target) && !btn.contains(e.target) : true;
-
-            if (isClickOnBackdrop || (isClickOutside && !anyPopupShown.contains(e.target))) {
-                closeAllPopups();
+    function closeAllPopups() {
+        allPopups.forEach(popup => {
+            if (popup.classList.contains('show')) {
+                popup.classList.remove('show');
+                popup.classList.add('hide');
+                setTimeout(() => popup.classList.add('hidden'), 350);
             }
         });
+        backdrop.classList.add('hide');
+        document.body.style.overflow = ''; // Enable scroll
+    }
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && document.querySelector('.fixed.inset-0.z-50.show')) {
-                closeAllPopups();
-            }
-        });
+    // Listener global untuk menutup popup
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeAllPopups();
+    });
+    
+    backdrop.addEventListener('click', closeAllPopups);
+
+    // Fungsi untuk membuka popup spesifik
+    function openPopup(popupElement) {
+        if (!popupElement) return;
+        closeAllPopups(); // Pastikan semua yang lain tertutup dulu
+        popupElement.classList.remove('hidden', 'hide');
+        popupElement.classList.add('show');
+        backdrop.classList.remove('hide');
+        document.body.style.overflow = 'hidden'; // Disable scroll
     }
     
-    // Setup semua popup utama
+    // Pasang event listener ke semua tombol pembuka popup utama
     ['profil', 'standar', 'layanan', 'intern', 'publikasi', 'informasi', 'siaga', 'kontak'].forEach(name => {
-        setupMobilePopup(`mobile-${name}-btn`, `mobile-${name}-popup`, `mobile-${name}-popup-content`);
+        const btn = document.getElementById(`mobile-${name}-btn`);
+        const popup = document.getElementById(`mobile-${name}-popup`);
+        if (btn && popup) {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openPopup(popup);
+            });
+        }
     });
 
-    // --- PERBAIKAN FINAL: LOGIKA TUKAR ANTAR POPUP ---
-    const kelembagaanBtn = document.getElementById('mobile-kelembagaan-btn');
-    const kelembagaanPopup = document.getElementById('mobile-kelembagaan-popup');
+    // Penanganan khusus untuk beralih antara popup Profil dan Kelembagaan
     const profilPopup = document.getElementById('mobile-profil-popup');
+    const kelembagaanPopup = document.getElementById('mobile-kelembagaan-popup');
+    const kelembagaanBtn = document.getElementById('mobile-kelembagaan-btn');
     const kelembagaanBack = document.getElementById('mobile-kelembagaan-back');
 
-    if (kelembagaanBtn && kelembagaanPopup && profilPopup && kelembagaanBack) {
-        
-        // Fungsi untuk menukar popup dengan animasi
+    if (profilPopup && kelembagaanPopup && kelembagaanBtn && kelembagaanBack) {
         function switchPopup(from, to) {
-            // Sembunyikan popup awal
             from.classList.remove('show');
             from.classList.add('hide');
-            
-            // Tampilkan popup tujuan setelah jeda singkat
             setTimeout(() => {
                 from.classList.add('hidden');
                 to.classList.remove('hidden', 'hide');
                 to.classList.add('show');
-            }, 150); // Jeda 150ms untuk transisi lebih smooth
+            }, 350); // Menunggu animasi selesai
         }
 
-        // Saat tombol Kelembagaan diklik
-        kelembagaanBtn.addEventListener('click', function (e) {
+        kelembagaanBtn.addEventListener('click', (e) => {
             e.preventDefault();
             switchPopup(profilPopup, kelembagaanPopup);
         });
 
-        // Saat tombol kembali di Kelembagaan diklik
-        kelembagaanBack.addEventListener('click', function () {
+        kelembagaanBack.addEventListener('click', () => {
             switchPopup(kelembagaanPopup, profilPopup);
         });
     }
