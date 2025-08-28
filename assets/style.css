@@ -1,0 +1,383 @@
+/* Popup Kelembagaan khusus mobile */
+#mobile-kelembagaan-popup .bg-white {
+    background-color: #440670 !important;
+}
+#mobile-kelembagaan-popup .text-primary,
+#mobile-kelembagaan-popup .font-semibold,
+#mobile-kelembagaan-popup .block,
+#mobile-kelembagaan-popup .text-lg {
+    color: #fff !important;
+}
+#mobile-kelembagaan-popup i,
+#mobile-kelembagaan-popup button {
+    color: #fff !important;
+    fill: #fff !important;
+}
+#mobile-kelembagaan-popup a {
+    color: #fff !important;
+}
+#mobile-kelembagaan-popup a:hover {
+    background-color: #750098 !important;
+    color: #FFD91F !important;
+}
+body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+            color: #1F2937;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            line-height: 1;
+        }
+        
+        /* Modern color palette with improved readability */
+        .bg-primary { background-color: #440670; }
+        .bg-secondary { background-color: #750098; }
+        .bg-accent { background-color: #FFD91F; }
+        .bg-accent-secondary { background-color: #C744F2; }
+        .bg-surface { background-color: #F8FAFC; }
+        .bg-surface-light { background-color: #FFFFFF; }
+        
+        /* Improved text colors for better readability */
+        .text-primary { color: #440670; }
+        .text-secondary { color: #750098; }
+        .text-accent { color: #FFD91F; }
+        .text-accent-secondary { color: #C744F2; }
+        .text-muted { color: #4B5563; }
+        .text-dark { color: #111827; }
+        .text-light { color: #6B7280; }
+        .text-white { color: #FFFFFF; }
+        .text-white-90 { color: rgba(255, 255, 255, 0.9); }
+        .text-white-80 { color: rgba(255, 255, 255, 0.8); }
+        .text-white-70 { color: rgba(255, 255, 255, 0.7); }
+        
+        .border-primary { border-color: #440670; }
+        .border-accent { border-color: #FFD91F; }
+        .border-light { border-color: #E5E7EB; }
+        
+        /* Modern shadows and effects */
+        .shadow-soft { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .shadow-medium { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .shadow-large { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        
+        /* Smooth transitions */
+        .transition-all { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        /* Modern gradients */
+        .gradient-primary { background: linear-gradient(135deg, #440670 0%, #750098 100%); }
+        .gradient-accent { background: linear-gradient(135deg, #FFD91F 0%, #F59E0B 100%); }
+        .gradient-secondary { background: linear-gradient(135deg,#750098 0%, #f8f8f8 50%, #440670 100%); }
+        
+        /* Improved focus states for accessibility */
+        .focus-ring:focus {
+            outline: 2px solid #FFD91F;
+            outline-offset: 2px;
+        }
+        
+        .card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #440670 0%, #750098 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(68, 6, 112, 0.3);
+        }
+        
+        .btn-accent {
+            background: linear-gradient(135deg, #FFD91F 0%, #F59E0B 100%);
+            color: #111827;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 217, 31, 0.3);
+        }
+        
+        /* Modern spacing system */
+        .section-padding { padding: 80px 0; }
+        .container-padding { padding: 0 24px; }
+        
+        /* Custom gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #440670 0%, #750098 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        @media (min-width: 768px) {
+            .container-padding { padding: 0 48px; }
+            .section-padding { padding: 120px 0; }
+        }
+        
+        @media (min-width: 1024px) {
+            .container-padding { padding: 0 64px; }}
+.navbar-dropdown {
+    position: relative;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-btn {
+    min-width: 50px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    z-index: 61;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Animasi dan posisi popup menu dropdown navbar */
+.navbar-menu {
+    display: block;
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+    transition:
+        opacity 220ms cubic-bezier(0.4,0,0.2,1),
+        transform 220ms cubic-bezier(0.4,0,0.2,1),
+        visibility 0s linear 220ms;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: 60;
+    min-width: 16rem;
+    top: 100%;
+    left: 0;
+    right: auto;
+    margin-top: 0.5rem;
+    position: absolute;
+}
+
+/* Show on hover/focus/menu-open */
+.navbar-dropdown.menu-open .navbar-menu,
+.navbar-dropdown:hover .navbar-menu,
+.navbar-dropdown:focus-within .navbar-menu,
+.navbar-menu:hover,
+.navbar-menu:focus-within {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    visibility: visible;
+    transition:
+        opacity 220ms cubic-bezier(0.4,0,0.2,1),
+        transform 220ms cubic-bezier(0.4,0,0.2,1),
+        visibility 0s linear 0s;
+}
+
+/* Prevent flicker when moving between button and menu */
+.navbar-btn:focus + .navbar-menu,
+.navbar-menu:focus-within {
+    display: block !important;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    z-index: 60;
+}
+
+/* Navbar button hover: font kuning */
+.navbar-btn:hover,
+.navbar-dropdown.menu-open > .navbar-btn,
+.navbar-btn:focus {
+    color: #FFD91F !important;
+    transition: color 0.2s;
+}
+header#header {
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 0.92em; /* sedikit lebih kecil */
+}
+
+@media (max-width: 768px) {
+    header#header {
+        padding-left: 12px;
+        padding-right: 12px;
+        font-size: 0.88em;
+    }
+}
+
+/* Perkecil font branding pada mobile */
+@media (max-width: 400px) {
+    .flex.items-center.space-x-4 > div > div.text-accent {
+        font-size: 0.7em;
+        line-height: 1.1;
+    }
+    .flex.items-center.space-x-4 > div > div.text-white {
+        font-size: 0.5em;
+        line-height: 1.1;
+    }
+}
+
+/* Animasi smooth untuk popup mobile */
+.show {
+    display: flex !important;
+    opacity: 1 !important;
+    transform: scale(1);
+    transition: opacity 0.35s, transform 0.35s;
+}
+.hide {
+    opacity: 0 !important;
+    pointer-events: none;
+    transform: scale(0.95);
+    transition: opacity 0.35s, transform 0.35s;
+}
+.bg-white { animation: popupIn 0.3s cubic-bezier(.4,0,.2,1); }
+.center-margin { margin: auto; }
+@keyframes popupIn {
+        from { opacity: 0; transform: scale(0.95);}
+        to { opacity: 1; transform: scale(1);}
+}
+
+/* Tambahkan di bagian bawah file CSS */
+.mobile-popup-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 27, 75, 0.55); /* warna gelap transparan */
+    z-index: 49; /* di bawah popup, di atas konten */
+    transition: opacity 0.3s;
+    opacity: 1;
+    pointer-events: auto;
+}
+.mobile-popup-backdrop.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+.mobile-popup-backdrop,
+.fixed.inset-0.flex.items-center.justify-center.z-50 {
+    transition: opacity 0.35s, transform 0.35s;
+}
+
+/* ===== Submenu level-2: Kelembagaan (kanan) ===== */
+#profil-menu { overflow: visible; } /* pastikan tidak memotong submenu */
+#standar-menu { overflow: visible; }
+
+.submenu-parent { position: relative; }
+
+.submenu-panel {
+  top: 0;                       /* rata atas item parent */
+  left: calc(100% + 8px);       /* tampil di KANAN popup pertama dengan jarak 8px */
+  right: auto;
+  width: 14rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-8px);  /* animasi masuk dari kanan */
+  transition:
+    opacity 220ms cubic-bezier(0.4,0,0.2,1),
+    transform 220ms cubic-bezier(0.4,0,0.2,1),
+    visibility 0s linear 220ms;
+  z-index: 59; /* sedikit DI BAWAH panel utama (yang z-index:60) agar tidak menutupi */
+}
+
+/* tampilkan saat parent di-hover/focus, atau saat panel disorot */
+.submenu-parent:hover > .submenu-panel,
+.submenu-parent:focus-within > .submenu-panel,
+.submenu-panel:hover,
+.submenu-panel:focus-within {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
+  transition:
+    opacity 220ms cubic-bezier(0.4,0,0.2,1),
+    transform 220ms cubic-bezier(0.4,0,0.2,1),
+    visibility 0s linear 0s;
+}
+
+/* Jaga supaya menu utama tetap terbuka saat bergerak ke submenu */
+.navbar-menu:hover,
+.navbar-menu:focus-within {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Override aturan lama #kelembagaan-menu (kalau ada) agar tidak bentrok */
+#kelembagaan-menu, #keputusan-menu, #prosedur-menu {
+  display: block; /* biar transition pakai opacity/visibility saja */
+}
+
+/* Jembatan hover/focus antara parent dan panel submenu agar tidak flicker saat mouse bergerak ke kanan */
+/* Tambahkan di bagian bawah file CSS Anda */
+
+.submenu-parent::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 24px; /* lebar jembatan hover */
+  height: 100%;
+  z-index: 58; /* di bawah panel submenu */
+  pointer-events: auto;
+  /* transparan, hanya untuk menangkap hover */
+}
+
+
+.submenu-parent:hover > .submenu-panel,
+.submenu-parent:focus-within > .submenu-panel,
+.submenu-panel:hover,
+.submenu-panel:focus-within,
+.submenu-parent:hover::after,
+.submenu-parent:focus-within::after {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+/* Animasi slide-in panel submenu mobile */
+#mobile-kelembagaan-submenu {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    width: 100%;
+    max-width: 100%;
+    max-height: 80vh;
+    margin: auto;
+    z-index: 51;
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s, opacity 0.35s;
+    display: block;
+}
+
+
+
+
+
+
+
+
+

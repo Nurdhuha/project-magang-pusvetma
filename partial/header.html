@@ -1,0 +1,504 @@
+<header id="header" class="bg-primary text-white shadow-medium sticky top-0 z-50 transition-all">
+    <div class="container max-auto container padding">
+        <div class="flex justify-between items-center py-4">
+            <!-- Logo dan Branding -->
+            <div class="flex items-center space-x-4">
+                <img src="assets/images/logo-kementerian-pertanian.png" alt="Logo Kementerian Pertanian" class="w-10 h-10 object-contain" />
+                <div>
+                    <div class="text-accent font-bold text-sm leading-tight">BALAI BESAR VETERINER FARMA PUSVETMA</div>
+                    <div class="text-white text-xs opacity-90">DIREKTORAT JENDERAL PETERNAKAN DAN KESEHATAN HEWAN</div>
+                    <div class="text-white text-xs opacity-90">KEMENTERIAN PERTANIAN</div>
+                </div>
+            </div>
+            
+            <!-- Navigasi Desktop -->
+            <nav class="hidden lg:flex items-center space-x-6">
+                <!-- Profil Dropdown -->
+                <div id="nav-profil" class="navbar-dropdown">
+                    <button
+                        id="profil-btn"
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        class="navbar-btn text-white hover:text-accent transition-all font-medium text-sm inline-flex items-center space-x-2 px-2 py-1 rounded focus:outline-none focus-ring"
+                    >
+                        <span>Profil</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div
+                        id="profil-menu"
+                        class="navbar-menu origin-top-left absolute left-0 mt-2 w-64 bg-white text-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden"
+                        role="menu"
+                        aria-label="Profil menu"
+                    >
+                        <a href="sejarah.php" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Sejarah</a>
+                        <a href="visi-misi.php" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Visi Misi</a>
+                        <a href="struktur.php" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Struktur Organisasi</a>
+                        <!-- Kelembagaan: parent dengan submenu level-2 -->
+
+                        <div class="group submenu-parent relative">
+                        <!-- trigger -->
+                        <a href="#kelembagaan"
+                            class="flex items-center justify-between px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none"
+                            role="menuitem"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            aria-controls="kelembagaan-menu">
+                            <span>Kelembagaan</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+
+                        <!-- submenu level-2: tampil di KANAN, tidak menutupi menu utama -->
+                        <div id="kelembagaan-menu"
+                            class="submenu-panel absolute bg-white text-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden"
+                            role="menu"
+                            aria-label="Submenu Kelembagaan"
+                            tabindex="-1">
+                            <a href="#pusvetma" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Pusvetma</a>
+                            <a href="#bagian-umum" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Bagian Umum</a>
+                            <a href="#kelompok-poh" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Kelompok Produksi Obat Hewan</a>
+                            <a href="#kelompok-ppmpp" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Kelompok PPMP</a>
+                            <a href="#kelompok-sadis" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Kelompok Pemasaran & Distribusi</a>
+                        </div>
+                        </div>
+
+
+                        <a href="#manajemen" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Manajemen</a>
+                        <a href="#statistik-pegawai" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Statistik Pegawai</a>
+                        <a href="#target-capaian" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Target & Realisasi Capaian Kinerja</a>
+                        <a href="#kebijakan-mutu" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Kebijakan Mutu</a>
+                        <a href="#maklumat-pelayanan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Maklumat Pelayanan</a>
+                        <a href="#prestasi" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Prestasi</a>
+                        <a href="#budaya-kerja" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Budaya Kerja</a>
+                        <a href="#sertifikasi" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Sertifikasi</a>
+                    </div>
+                </div>
+                <!-- Standar Pelayanan Publik Dropdown -->
+                <div id="nav-standar" class="navbar-dropdown">
+                    <button
+                        id="standar-btn"
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        class="navbar-btn text-white hover:text-accent transition-all font-medium text-sm inline-flex items-center space-x-2 px-2 py-1 rounded focus:outline-none focus-ring"
+                    >
+                        <span>Standar Pelayanan Publik</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div
+                        id="standar-menu"
+                        class="navbar-menu origin-top-left absolute left-0 mt-2 w-72 bg-white text-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden"
+                        role="menu"
+                        aria-label="Standar Pelayanan Publik menu"
+                    >
+                        <!-- Keputusan kepala: parent dengan submenu level-2 -->
+                        <div class="group submenu-parent relative">
+                            <a href="#keputusan-kepala"
+                                class="flex items-center justify-between px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none"
+                                role="menuitem"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                aria-controls="keputusan-menu">
+                                <span>Keputusan Kepala</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </a>
+                            <!-- submenu level-2 -->
+                            <div id="keputusan-menu"
+                                class="submenu-panel absolute bg-white text-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden"
+                                role="menu"
+                                aria-label="Submenu Keputusan kepala"
+                                tabindex="-1">
+                                <a href="#pembentukan-tim" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Pembentukan Tim Penyusun SPP Pusvetma</a>
+                                <a href="#penetapan-spp" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Penetapan SPP Pusvetma</a>
+                                <a href="#standar-pelayanan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Standar Pelayanan Publik Pusvetma</a>
+                                <a href="#prosedur-petugas" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Prosedur Petugas Layanan</a>
+                            </div>
+                        </div>
+                        <a href="#visi-misi" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Visi Misi</a>
+                        <a href="#moto" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Moto</a>
+                        <a href="#kebijakan-mutu" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Kebijakan Mutu</a>
+                        <a href="#nilai-budaya-kerja" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Nilai Budaya Kerja</a>
+                        <a href="#komitmen-bersama" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Komitmen Bersama</a>
+                        <a href="#maklumat-pelayanan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Maklumat Pelayanan</a>
+                        <a href="#etika-pelayanan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Etika Pelayanan</a>
+                        <a href="#jaminan-pelayanan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Jaminan Pelayanan</a>
+                        <div class="group submenu-parent relative">
+                            <a href="#prosedur"
+                                class="flex items-center justify-between px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none"
+                                role="menuitem"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                                aria-controls="prosedur-menu">
+                                <span>Prosedur</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </a>
+                            <!-- submenu level-2 -->
+                            <div id="prosedur-menu"
+                                class="submenu-panel absolute bg-white text-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden"
+                                role="menu"
+                                aria-label="Submenu Prosedur"
+                                tabindex="-1">
+                                <a href="#penjualan-produk" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Penjualan Produk</a>
+                                <a href="#pengujian-mutu" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Pengujian Mutu Produk</a>
+                                <a href="#penunjang" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Penunjang</a>
+                                <!-- Tambahkan item sesuai kebutuhan -->
+                            </div>
+                        </div>
+                        <a href="#persyaratan-layanan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Persyaratan Layanan</a>
+                        <a href="#kompensasi-layanan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Kompensasi Layanan</a>
+                        <a href="#biaya-tarif" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Biaya/Tarif</a>
+                        <a href="#waktu-pelayanan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Waktu Pelayanan</a>
+                        <a href="#prosedur-pengaduan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Prosedur Pengaduan</a>
+                        <a href="#jaminan-keamanan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Jaminan Keamanan dan Keselamatan</a>
+                        <a href="#survey-kepuasan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Survey Kepuasan Masyarakat</a>
+                        <a href="#hasil-survey" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Hasil Survey Kepuasan Masyarakat</a>
+                    </div>
+                </div>
+                <!-- START: Jenis Layanan/Produk with popup submenu -->
+                <div id="nav-layanan" class="navbar-dropdown">
+                    <button
+                        id="layanan-btn"
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        class="navbar-btn text-white hover:text-accent transition-all font-medium text-sm inline-flex items-center space-x-2 px-2 py-1 rounded focus:outline-none focus-ring"
+                    >
+                        <span>Jenis Layanan/Produk</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div
+                        id="layanan-menu"
+                        class="navbar-menu origin-top-left absolute left-0 mt-2 w-64 bg-white text-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden"
+                        role="menu"
+                        aria-label="Jenis Layanan/Produk menu"
+                    >
+                        <a href="#penjualan-produk" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Penjualan Produk</a>
+                        <a href="#pengujian-mutu" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Pengujian Mutu produk</a>
+                        <a href="#penunjang" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Penunjang</a>
+                        <a href="#surveilans-pmk" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Surveilans PMK</a>
+                    </div>
+                </div>
+                <!-- END: Jenis Layanan/Produk with popup submenu -->
+
+                <!-- START: Pengendalian Intern with popup submenu -->
+                <div id="nav-intern" class="navbar-dropdown">
+                    <button
+                        id="intern-btn"
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        class="navbar-btn text-white hover:text-accent transition-all font-medium text-sm inline-flex items-center space-x-2 px-2 py-1 rounded focus:outline-none focus-ring"
+                    >
+                        <span>Pengendalian Intern</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div
+                        id="intern-menu"
+                        class="navbar-menu origin-top-left absolute left-0 mt-2 w-64 bg-white text-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden"
+                        role="menu"
+                        aria-label="Pengendalian Intern menu"
+                    >
+                        <a href="#tim-satlak" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Tim Satlak</a>
+                        <a href="#juklak-spi" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Juklak SPI</a>
+                        <a href="#lingkungan-pengendalian" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Lingkungan Pengendalian</a>
+                        <a href="#identifikasi-risiko" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Identifikasi Risiko</a>
+                        <a href="#kegiatan-pengendalian" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Kegiatan Pengendalian</a>
+                        <a href="#informasi-komunikasi" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Informasi Komunikasi</a>
+                        <a href="#pemantauan-berkelanjutan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Pemantauan Berkelanjutan</a>
+                        <a href="#dokumentasi" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Dokumentasi</a>
+                    </div>
+                </div>
+                <!-- END: Pengendalian Intern with popup submenu -->
+
+                <!-- START: Publikasi with popup submenu -->
+                <div id="nav-publikasi" class="navbar-dropdown">
+                    <button
+                        id="publikasi-btn"
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        class="navbar-btn text-white hover:text-accent transition-all font-medium text-sm inline-flex items-center space-x-2 px-2 py-1 rounded focus:outline-none focus-ring"
+                    >
+                        <span>Publikasi</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div
+                        id="publikasi-menu"
+                        class="navbar-menu origin-top-left absolute left-0 mt-2 w-64 bg-white text-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden"
+                        role="menu"
+                        aria-label="Publikasi menu"
+                    >
+                        <a href="#berita" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Berita</a>
+                        <a href="#artikel" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Artikel</a>
+                        <a href="#foto" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Foto</a>
+                        <a href="#video" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Video</a>
+                        <a href="#buletin" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Buletin</a>
+                    </div>
+                </div>
+                <!-- END: Publikasi with popup submenu -->
+
+                <!-- START: Informasi Publik with popup submenu -->
+                <div id="nav-informasi" class="navbar-dropdown">
+                    <button
+                        id="informasi-btn"
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        class="navbar-btn text-white hover:text-accent transition-all font-medium text-sm inline-flex items-center space-x-2 px-2 py-1 rounded focus:outline-none focus-ring"
+                    >
+                        <span>Informasi Publik</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div
+                        id="informasi-menu"
+                        class="navbar-menu origin-top-left absolute left-0 mt-2 w-72 bg-white text-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden"
+                        role="menu"
+                        aria-label="Informasi Publik menu"
+                    >
+                        <a href="#daftar-informasi-publik" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Daftar Informasi Publik</a>
+                        <a href="#informasi-berkala" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Informasi Berkala</a>
+                        <a href="#informasi-setiap-saat" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Informasi Setiap Saat</a>
+                        <a href="#informasi-serta-merta" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Informasi Serta Merta</a>
+                        <a href="#sk-ppid" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">SK PPID</a>
+                        <a href="#maklumat-pelayanan-informasi" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Maklumat Pelayanan Informasi Publik</a>
+                        <a href="#sop" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">SOP</a>
+                        <a href="#standar-biaya-pelayanan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Standar Biaya Pelayanan</a>
+                        <a href="#data-statistik" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Data Statistik</a>
+                        <a href="#pengadaan-barang-jasa" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Pengadaan Barang/Jasa</a>
+                        <a href="#regulasi-peraturan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Regulasi/Peraturan</a>
+                        <a href="#internal-link-direktori" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Internal Link dan Direktori</a>
+                        <a href="#external-link" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">External Link</a>
+                        <a href="#pengumuman-lelang" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Pengumuman Lelang</a>
+                        <a href="#rekap-pengaduan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Rekap Pengaduan</a>
+                        <a href="#agenda-kegiatan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Agenda Kegiatan</a>
+                        <a href="#pengelolaan-teknologi-informasi" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Pengelolaan teknologi Informasi</a>
+                        <a href="#lowongan-kerja" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Lowongan Kerja</a>
+                    </div>
+                </div>
+                <!-- END: Informasi Publik with popup submenu -->
+
+                <!-- START: Kontak & Pengaduan with popup submenu -->
+                <div id="nav-kontak" class="navbar-dropdown">
+                    <button
+                        id="kontak-btn"
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        class="navbar-btn text-white hover:text-accent transition-all font-medium text-sm inline-flex items-center space-x-2 px-2 py-1 rounded focus:outline-none focus-ring"
+                    >
+                        <span>Kontak & Pengaduan</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div
+                        id="kontak-menu"
+                        class="navbar-menu origin-top-left absolute left-0 mt-2 w-64 bg-white text-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden"
+                        role="menu"
+                        aria-label="Kontak & Pengaduan menu"
+                    >
+                        <a href="#kontak" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Kontak</a>
+                        <a href="#pengaduan" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Pengaduan</a>
+                        <a href="#lapor" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Lapor</a>
+                        <a href="#whistleblower" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Whistleblower's System</a>
+                        <a href="#survey-ikm" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Survey IKM</a>
+                        <a href="#faq" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">FAQ</a>
+                    </div>
+                </div>
+                <!-- END: Kontak & Pengaduan with popup submenu -->
+
+                <!-- START: Siaga Darurat with popup submenu -->
+                <div id="nav-siaga" class="navbar-dropdown">
+                    <button
+                        id="siaga-btn"
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        class="navbar-btn text-white hover:text-accent transition-all font-medium text-sm inline-flex items-center space-x-2 px-2 py-1 rounded focus:outline-none focus-ring"
+                    >
+                        <span>Siaga Darurat</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </button>
+                    <div
+                        id="siaga-menu"
+                        class="navbar-menu origin-top-left absolute left-0 mt-2 w-64 bg-white text-gray-800 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 z-50 overflow-hidden"
+                        role="menu"
+                        aria-label="Siaga Darurat menu"
+                    >
+                        <a href="#siaga-covid" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Siaga COVID-10</a>
+                        <a href="#siaga-pmk" class="block px-4 py-3 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none" role="menuitem">Siaga PMK</a>
+                    </div>
+                </div>
+                <!-- END: Siaga Darurat with popup submenu -->
+            </nav>
+            
+            <!-- Navigasi Mobile -->
+            <div class="flex items-center space-x-4">
+                <button type="button" aria-label="Cari" class="p-2 hover:bg-white/10 rounded-lg transition-all focus-ring">
+                    <i data-lucide="search" class="w-5 h-5"></i>
+                </button>
+                <button type="button" id="mobile-menu-button" aria-label="Buka menu navigasi" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-all focus-ring">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navigasi Mobile -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-primary/95 backdrop-blur-sm border-t border-white/10">
+        <div class="container-padding">
+            <!-- Tombol Navigasi Mobile -->
+            <a href="#profil" id="mobile-profil-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Profil</a>
+            <a href="#standar-pelayanan-publik" id="mobile-standar-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Standar Pelayanan Publik</a>
+            <a href="#jenis-layanan" id="mobile-layanan-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Jenis Layanan/Produk</a>
+            <a href="#pengendalian-intern" id="mobile-intern-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Pengendalian Intern</a>
+            <a href="#publikasi" id="mobile-publikasi-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Publikasi</a>
+            <a href="#informasi-publik" id="mobile-informasi-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Informasi Publik</a>
+            <a href="#siaga-darurat" id="mobile-siaga-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Siaga Darurat</a>
+            <a href="#kontak-dan-pengaduan" id="mobile-kontak-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Kontak & Pengaduan</a>
+
+            <!-- Popup Containers -->
+            <div id="mobile-profil-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden transition-opacity duration-300 opacity-0">
+                <div class="bg-white rounded-lg shadow-2xl w-80 max-w-full max-h-[80vh] p-6 transform scale-95 transition-all duration-300 overflow-y-auto center-margin relative-position" id="mobile-profil-popup-content">
+                    <!-- Konten disesuaikan dengan navigasi desktop -->
+                    <div>
+                        <a href="sejarah.php" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary" >Sejarah</a>
+                        <a href="visi-misi.php" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary" >Visi Misi</a>
+                        <a href="struktur.php" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary" >Struktur Organisasi</a>
+                        <!-- Tombol Kelembagaan -->
+                        <a href="#" id="mobile-kelembagaan-btn" class="flex items-center justify-between px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary">
+                            <span>Kelembagaan</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#manajemen" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary" >Manajemen</a>
+                        <a href="#statistik-pegawai" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary" >Statistik Pegawai</a>
+                        <a href="#target-capaian" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary" >Target & Realisasi Capaian Kinerja</a>
+                        <a href="#kebijakan-mutu" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary" >Kebijakan Mutu</a>
+                        <a href="#maklumat-pelayanan" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary" >Maklumat Pelayanan</a>
+                        <a href="#prestasi" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary" >Prestasi</a>
+                        <a href="#budaya-kerja" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary" >Budaya Kerja</a>
+                        <a href="#sertifikasi" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary" >Sertifikasi</a>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-standar-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden transition-opacity duration-300 opacity-0">
+                <div class="bg-white rounded-lg shadow-2xl w-80 max-w-full max-h-[80vh] p-6 transform scale-95 transition-all duration-300 overflow-y-auto center-margin"
+                     id="mobile-standar-popup-content">
+                    <!-- ...standar menu items... -->
+                    <a href="#keputusan-kepala" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Keputusan kepala Pusvetma</a>
+                    <a href="#visi-misi" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Visi Misi</a>
+                    <a href="#moto" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Moto</a>
+                    <a href="#kebijakan-mutu" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Kebijakan Mutu</a>
+                    <a href="#nilai-budaya-kerja" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Nilai Budaya Kerja</a>
+                    <a href="#komitmen-bersama" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Komitmen Bersama</a>
+                    <a href="#maklumat-pelayanan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Maklumat Pelayanan</a>
+                    <a href="#etika-pelayanan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Etika Pelayanan</a>
+                    <a href="#jaminan-pelayanan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Jaminan Pelayanan</a>
+                    <a href="#prosedur" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Prosedur</a>
+                    <a href="#persyaratan-layanan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Persyaratan Layanan</a>
+                    <a href="#kompensasi-layanan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Kompensasi Layanan</a>
+                    <a href="#biaya-tarif" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Biaya/Tarif</a>
+                    <a href="#waktu-pelayanan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Waktu Pelayanan</a>
+                    <a href="#prosedur-pengaduan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Prosedur Pengaduan</a>
+                    <a href="#jaminan-keamanan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Jaminan Keamanan dan Keselamatan</a>
+                    <a href="#survey-kepuasan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Survey Kepuasan Masyarakat</a>
+                    <a href="#hasil-survey" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Hasil Survey Kepuasan Masyarakat</a>
+                </div>
+            </div>
+            <div id="mobile-layanan-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden transition-opacity duration-300 opacity-0">
+                <div class="bg-white rounded-lg shadow-2xl w-80 max-w-full max-h-[80vh] p-6 transform scale-95 transition-all duration-300 overflow-y-auto center-margin"
+                     id="mobile-layanan-popup-content">
+                    <!-- ...layanan menu items... -->
+                    <a href="#penjualan-produk" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Penjualan Produk</a>
+                    <a href="#pengujian-mutu" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Pengujian Mutu produk</a>
+                    <a href="#penunjang" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Penunjang</a>
+                    <a href="#surveilans-pmk" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Surveilans PMK</a>
+                </div>
+            </div>
+            <div id="mobile-intern-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden transition-opacity duration-300 opacity-0">
+                <div class="bg-white rounded-lg shadow-2xl w-80 max-w-full max-h-[80vh] p-6 transform scale-95 transition-all duration-300 overflow-y-auto center-margin"
+                     id="mobile-intern-popup-content">
+                    <!-- ...intern menu items... -->
+                    <a href="#tim-satlak" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Tim Satlak</a>
+                    <a href="#juklak-spi" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Juklak SPI</a>
+                    <a href="#lingkungan-pengendalian" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Lingkungan Pengendalian</a>
+                    <a href="#identifikasi-risiko" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Identifikasi Risiko</a>
+                    <a href="#kegiatan-pengendalian" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Kegiatan Pengendalian</a>
+                    <a href="#informasi-komunikasi" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Informasi Komunikasi</a>
+                    <a href="#pemantauan-berkelanjutan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Pemantauan Berkelanjutan</a>
+                    <a href="#dokumentasi" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Dokumentasi</a>
+                </div>
+            </div>
+            <div id="mobile-publikasi-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden transition-opacity duration-300 opacity-0">
+                <div class="bg-white rounded-lg shadow-2xl w-80 max-w-full max-h-[80vh] p-6 transform scale-95 transition-all duration-300 overflow-y-auto center-margin"
+                     id="mobile-publikasi-popup-content">
+                    <!-- ...publikasi menu items... -->
+                    <a href="#berita" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Berita</a>
+                    <a href="#artikel" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Artikel</a>
+                    <a href="#foto" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Foto</a>
+                    <a href="#video" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Video</a>
+                    <a href="#buletin" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Buletin</a>
+                </div>
+            </div>
+            <div id="mobile-informasi-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden transition-opacity duration-300 opacity-0">
+                <div class="bg-white rounded-lg shadow-2xl w-80 max-w-full max-h-[80vh] p-6 transform scale-95 transition-all duration-300 overflow-y-auto center-margin"
+                     id="mobile-informasi-popup-content">
+                    <!-- ...informasi menu items... -->
+                    <a href="#daftar-informasi-publik" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Daftar Informasi Publik</a>
+                    <a href="#informasi-berkala" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Informasi Berkala</a>
+                    <a href="#informasi-setiap-saat" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Informasi Setiap Saat</a>
+                    <a href="#informasi-serta-merta" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Informasi Serta Merta</a>
+                    <a href="#sk-ppid" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">SK PPID</a>
+                    <a href="#maklumat-pelayanan-informasi" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Maklumat Pelayanan Informasi Publik</a>
+                    <a href="#sop" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">SOP</a>
+                    <a href="#standar-biaya-pelayanan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Standar Biaya Pelayanan</a>
+                    <a href="#data-statistik" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Data Statistik</a>
+                    <a href="#pengadaan-barang-jasa" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Pengadaan Barang/Jasa</a>
+                    <a href="#regulasi-peraturan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Regulasi/Peraturan</a>
+                    <a href="#internal-link-direktori" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Internal Link dan Direktori</a>
+                    <a href="#external-link" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">External Link</a>
+                    <a href="#pengumuman-lelang" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Pengumuman Lelang</a>
+                    <a href="#rekap-pengaduan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Rekap Pengaduan</a>
+                    <a href="#agenda-kegiatan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Agenda Kegiatan</a>
+                    <a href="#pengelolaan-teknologi-informasi" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Pengelolaan teknologi Informasi</a>
+                    <a href="#lowongan-kerja" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Lowongan Kerja</a>
+                </div>
+            </div>
+            <div id="mobile-siaga-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden transition-opacity duration-300 opacity-0">
+                <div class="bg-white rounded-lg shadow-2xl w-80 max-w-full max-h-[80vh] p-6 transform scale-95 transition-all duration-300 overflow-y-auto center-margin"
+                     id="mobile-siaga-popup-content">
+                    <!-- ...siaga menu items... -->
+                    <a href="#siaga-covid" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Siaga COVID-10</a>
+                    <a href="#siaga-pmk" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Siaga PMK</a>
+                </div>
+            </div>
+            <div id="mobile-kontak-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden transition-opacity duration-300 opacity-0">
+                <div class="bg-white rounded-lg shadow-2xl w-80 max-w-full max-h-[80vh] p-6 transform scale-95 transition-all duration-300 overflow-y-auto center-margin"
+                     id="mobile-kontak-popup-content">
+                    <!-- ...kontak menu items... -->
+                    <a href="#kontak" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Kontak</a>
+                    <a href="#pengaduan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Pengaduan</a>
+                    <a href="#lapor" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Lapor</a>
+                    <a href="#whistleblower" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Whistleblower's System</a>
+                    <a href="#survey-ikm" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Survey IKM</a>
+                    <a href="#faq" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Kelembagaan sebagai entitas sendiri, tetap dalam konteks menu profil -->
+    <div id="mobile-kelembagaan-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden transition-opacity duration-300 opacity-0">
+        <div class="bg-white rounded-lg shadow-2xl w-80 max-w-full max-h-[80vh] p-6 transform scale-95 transition-all duration-300 overflow-y-auto center-margin" id="mobile-kelembagaan-popup-content">
+            <div class="flex items-center justify-between mb-4">
+                <button id="mobile-kelembagaan-back" class="text-primary font-bold px-2 py-1 rounded hover:bg-gray-100 transition-all focus:outline-none" aria-label="Kembali ke menu Profil">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </button>
+                <span class="font-semibold text-primary text-lg">Kelembagaan</span>
+            </div>
+            <a href="#pusvetma" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary">Pusvetma</a>
+            <a href="#bagian-umum" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary">Bagian Umum</a>
+            <a href="#kelompok-poh" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary">Kelompok Produksi Obat Hewan</a>
+            <a href="#kelompok-ppmpp" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary">Kelompok PPMP</a>
+            <a href="#kelompok-sadis" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary">Kelompok Pemasaran & Distribusi</a>
+        </div>
+    </div>
+</header>
