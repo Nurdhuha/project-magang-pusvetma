@@ -528,15 +528,28 @@ header#header.popup-open {
     transform: rotate(0deg); /* Posisi awal */
 }
 
-/* Saat #mobile-nav memiliki kelas .is-open, ubah ikon tombol */
-#mobile-nav.is-open + .header-tools #mobile-menu-toggle i {
-    /* 1. Ubah ikon menjadi silang */
-    content: "\f00d"; /* Kode Unicode untuk Font Awesome fa-times */
-    font-family: "Font Awesome 5 Free"; /* Pastikan font family benar */
-    font-weight: 900; /* fa-times adalah solid, jadi butuh font-weight 900 */
-    
-    /* 2. Putar ikon untuk efek visual */
-    transform: rotate(90deg); /* Rotasi untuk kesan animasi "x" */
+/* -- CSS UNTUK ANIMASI IKON MENU (LUCIDE) -- */
+
+/* Saat menu terbuka, target tombol dengan ID #mobile-menu-button */
+#mobile-menu-button.is-active .lucide-menu {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+#mobile-menu-button.is-active .lucide-x {
+    opacity: 1;
+    transform: rotate(0);
+}
+
+/* Kondisi awal (menu tertutup) */
+#mobile-menu-button .lucide-menu {
+    opacity: 1;
+    transform: rotate(0);
+}
+
+#mobile-menu-button .lucide-x {
+    opacity: 0;
+    transform: rotate(-90deg);
 }
 
 
