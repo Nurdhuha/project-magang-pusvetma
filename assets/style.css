@@ -412,6 +412,116 @@ header#header.popup-open .fixed {
     display: block;
 }
 
+/* Darken header when mobile popup is open */
+header#header.popup-open {
+    background-color: rgba(68, 6, 112, 0.9); /* warna yang lebih gelap dari bg-primary */
+    transition: background-color 0.3s ease;
+}
+
+
+#mobile-nav.is-open {
+    transform: translateY(0);
+}
+
+/* Gunakan styling back-button sesuai kebutuhan */
+.back-button {
+    display: block;
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 1em;
+    padding: 1rem;
+    text-align: left;
+}
+
+/* Styling dasar untuk panel menu */
+.menu-panel ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu-panel ul li {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.menu-panel ul li button,
+.menu-panel ul li a {
+    width: 100%;
+    padding: 1rem;
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    text-align: left;
+    font-size: 1em;
+}
+.menu-panel ul li button:hover,
+.menu-panel ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Samakan style font menu & submenu pada navigasi mobile */
+#mobile-nav ul,
+#mobile-nav ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#mobile-nav ul li a,
+#mobile-nav ul li button.menu-item,
+#mobile-nav .back-button {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: left; /* pastikan rata kiri */
+    padding: 0.75rem 1rem;
+    display: block;
+    width: 100%;
+    color: #FFFFFF;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#mobile-nav ul li a:hover,
+#mobile-nav ul li button.menu-item:hover,
+#mobile-nav .back-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+#mobile-nav {
+    position: fixed;
+
+    top: 55px; 
+    left: 0;
+    right: 0;
+    bottom: 0; /* Memastikan ia mengisi sisa tinggi layar */
+
+    overflow-y: auto;
+
+    z-index: 40;
+
+    transform: translateY(-110%);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Mobile Navigation dengan efek backdrop ungu dan blur */
+#mobile-nav {
+    position: fixed;
+    top: 54px; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    z-index: 40;
+    /* Gunakan warna ungu dengan opacity sebagai overlay */
+    background: rgba(68, 6, 112, 0.53);
+    transform: translateY(-110%);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#mobile-nav.is-open {
+    transform: translateY(0);
+}
 
 
 
