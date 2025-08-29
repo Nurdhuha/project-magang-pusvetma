@@ -18,30 +18,27 @@ document.addEventListener('DOMContentLoaded', function () {
     // Membuka mobile-nav dengan menampilkan panel utama
     function openMobileMenu() {
         mobileNav.classList.remove('hidden');
-        document.documentElement.style.overflow = 'hidden'; // Kunci scroll
+        document.documentElement.style.overflow = 'hidden';
         document.body.style.overflow = 'hidden';
-
-        // Ganti ikon
-        menuIcon.classList.add('hidden');
-        closeIcon.classList.remove('hidden');
+    
+        // CUKUP tambahkan kelas is-active ke tombol
         mobileMenuButton.classList.add('is-active');
-
+    
         setTimeout(() => {
             mobileNav.classList.add('is-open');
             showMenuPanel('main');
         }, 10);
     }
-
+    
+    // Menutup mobile-nav secara penuh
     function closeMobileMenu() {
         mobileNav.classList.remove('is-open');
-        document.documentElement.style.overflow = ''; // Buka kunci scroll
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
-
-        // Ganti ikon kembali
-        menuIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
+    
+        // CUKUP hapus kelas is-active dari tombol
         mobileMenuButton.classList.remove('is-active');
-
+    
         setTimeout(() => {
             mobileNav.classList.add('hidden');
         }, 400);
