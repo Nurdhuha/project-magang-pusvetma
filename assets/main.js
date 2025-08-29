@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileNav = document.getElementById('mobile-nav');
     const mobileNavContent = document.getElementById('mobile-nav-content');
+    
+    // Ambil referensi ke kedua ikon di dalam tombol
     const menuIcon = mobileMenuButton.querySelector('[data-lucide="menu"]');
     const closeIcon = mobileMenuButton.querySelector('[data-lucide="x"]');
 
