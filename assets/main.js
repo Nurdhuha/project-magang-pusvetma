@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileNav = document.getElementById('mobile-nav');
     const mobileNavContent = document.getElementById('mobile-nav-content');
+    const menuIcon = mobileMenuButton.querySelector('[data-lucide="menu"]');
+    const closeIcon = mobileMenuButton.querySelector('[data-lucide="x"]');
 
     // Fungsi untuk menampilkan panel dengan nilai data-menu yang diberikan
     function showMenuPanel(menu) {
@@ -16,17 +18,30 @@ document.addEventListener('DOMContentLoaded', function () {
     // Membuka mobile-nav dengan menampilkan panel utama
     function openMobileMenu() {
         mobileNav.classList.remove('hidden');
+        document.documentElement.style.overflow = 'hidden'; // Kunci scroll
+        document.body.style.overflow = 'hidden';
+
+        // Ganti ikon
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        mobileMenuButton.classList.add('is-active');
+
         setTimeout(() => {
             mobileNav.classList.add('is-open');
-            document.body.style.overflow = 'hidden';
             showMenuPanel('main');
         }, 10);
     }
-    
-    // Menutup mobile-nav secara penuh
+
     function closeMobileMenu() {
         mobileNav.classList.remove('is-open');
+        document.documentElement.style.overflow = ''; // Buka kunci scroll
         document.body.style.overflow = '';
+
+        // Ganti ikon kembali
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        mobileMenuButton.classList.remove('is-active');
+
         setTimeout(() => {
             mobileNav.classList.add('hidden');
         }, 400);
