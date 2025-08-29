@@ -335,7 +335,7 @@
                 <button type="button" aria-label="Cari" class="p-2 hover:bg-white/10 rounded-lg transition-all focus-ring">
                     <i data-lucide="search" class="w-5 h-5"></i>
                 </button>
-                <button type="button" id="mobile-menu-button" aria-label="Buka menu navigasi" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition-all focus-ring">
+                <button type="button" id="mobile-menu-button" aria-label="Buka menu navigasi">
                     <i data-lucide="menu" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -343,38 +343,188 @@
     </div>
     
     <!-- Navigasi Mobile -->
+    <!-- Container Navigation Mobile: Satu kontainer untuk menu utama dan submenu -->
     <nav id="mobile-nav" class="hidden lg:hidden bg-primary/95 backdrop-blur-sm border-t border-white/10">
-        <ul class="container-padding">
-            <li>
-                <a href="#profil" id="mobile-profil-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Profil</a>
-            </li>
-            <li>
-                <a href="#standar-pelayanan-publik" id="mobile-standar-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Standar Pelayanan Publik</a>
-            </li>
-            <li>
-                <a href="#jenis-layanan" id="mobile-layanan-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Jenis Layanan/Produk</a>
-            </li>
-            <li>
-                <a href="#pengendalian-intern" id="mobile-intern-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Pengendalian Intern</a>
-            </li>
-            <li>
-                <a href="#publikasi" id="mobile-publikasi-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Publikasi</a>
-            </li>
-            <li>
-                <a href="#informasi-publik" id="mobile-informasi-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Informasi Publik</a>
-            </li>
-            <li>
-                <a href="#siaga-darurat" id="mobile-siaga-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Siaga Darurat</a>
-            </li>
-            <li>
-                <a href="#kontak-dan-pengaduan" id="mobile-kontak-btn" class="block py-3 px-4 text-center font-semibold hover:bg-white/10 transition-all">Kontak &amp; Pengaduan</a>
-            </li>
-        </ul>
+      <div id="mobile-nav-content" class="container-padding">
+        <!-- Panel Menu Utama -->
+        <div class="menu-panel" data-menu="main">
+          <ul>
+            <li><button class="menu-item" data-submenu="profil">Profil</button></li>
+            <li><button class="menu-item" data-submenu="standar">Standar Pelayanan Publik</button></li>
+            <li><button class="menu-item" data-submenu="layanan">Jenis Layanan/Produk</button></li>
+            <li><button class="menu-item" data-submenu="intern">Pengendalian Intern</button></li>
+            <li><button class="menu-item" data-submenu="publikasi">Publikasi</button></li>
+            <li><button class="menu-item" data-submenu="informasi">Informasi Publik</button></li>
+            <li><button class="menu-item" data-submenu="siaga">Siaga Darurat</button></li>
+            <li><button class="menu-item" data-submenu="kontak">Kontak &amp; Pengaduan</button></li>
+          </ul>
+        </div>
+        
+        <!-- Panel Submenu Profil -->
+        <div class="menu-panel hidden" data-menu="profil">
+          <button class="back-button" aria-label="Back">
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          </button>
+          <ul>
+            <!-- Menu Profil -->
+            <li><a href="sejarah.php">Sejarah</a></li>
+            <li><a href="visi-misi.php">Visi Misi</a></li>
+            <li><a href="struktur.php">Struktur Organisasi</a></li>
+            <li><button class="menu-item" data-submenu="kelembagaan">Kelembagaan</button></li>
+            <li><a href="#manajemen">Manajemen</a></li>
+            <li><a href="#statistik-pegawai">Statistik Pegawai</a></li>
+            <li><a href="#target-capaian">Target &amp; Realisasi Capaian Kinerja</a></li>
+            <li><a href="#kebijakan-mutu">Kebijakan Mutu</a></li>
+            <li><a href="#maklumat-pelayanan">Maklumat Pelayanan</a></li>
+            <li><a href="#prestasi">Prestasi</a></li>
+            <li><a href="#budaya-kerja">Budaya Kerja</a></li>
+            <li><a href="#sertifikasi">Sertifikasi</a></li>
+          </ul>
+        </div>
+        
+        <!-- Panel Submenu Kelembagaan (di dalam Profil) -->
+        <div class="menu-panel hidden" data-menu="kelembagaan">
+          <button class="back-button" aria-label="Back">
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          </button>
+          <ul>
+            <li><a href="#pusvetma">Pusvetma</a></li>
+            <li><a href="#bagian-umum">Bagian Umum</a></li>
+            <li><a href="#kelompok-poh">Kelompok Produksi Obat Hewan</a></li>
+            <li><a href="#kelompok-ppmpp">Kelompok PPMP</a></li>
+            <li><a href="#kelompok-sadis">Kelompok Pemasaran &amp; Distribusi</a></li>
+          </ul>
+        </div>
+        
+        <!-- Panel Submenu Standar -->
+        <div class="menu-panel hidden" data-menu="standar">
+          <button class="back-button" aria-label="Back">
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          </button>
+          <ul>
+            <li><a href="#keputusan-kepala">Keputusan Kepala</a></li>
+            <li><a href="#visi-misi">Visi Misi</a></li>
+            <li><a href="#moto">Moto</a></li>
+            <li><a href="#kebijakan-mutu">Kebijakan Mutu</a></li>
+            <li><a href="#nilai-budaya-kerja">Nilai Budaya Kerja</a></li>
+            <li><a href="#komitmen-bersama">Komitmen Bersama</a></li>
+            <li><a href="#maklumat-pelayanan">Maklumat Pelayanan</a></li>
+            <li><a href="#etika-pelayanan">Etika Pelayanan</a></li>
+            <li><a href="#jaminan-pelayanan">Jaminan Pelayanan</a></li>
+            <li><a href="#prosedur">Prosedur</a></li>
+            <li><a href="#persyaratan-layanan">Persyaratan Layanan</a></li>
+            <li><a href="#kompensasi-layanan">Kompensasi Layanan</a></li>
+            <li><a href="#biaya-tarif">Biaya/Tarif</a></li>
+            <li><a href="#waktu-pelayanan">Waktu Pelayanan</a></li>
+            <li><a href="#prosedur-pengaduan">Prosedur Pengaduan</a></li>
+            <li><a href="#jaminan-keamanan" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Jaminan Keamanan &amp; Keselamatan</a>
+            <li><a href="#survey-kepuasan">Survey Kepuasan Masyarakat</a></li>
+            <li><a href="#hasil-survey" class="block px-4 py-3 rounded text-left font-semibold hover:bg-gray-100 transition-all text-primary">Hasil Survey Kepuasan Masyarakat</a>
+          </ul>
+        </div>
+        
+        <!-- Panel Submenu Layanan -->
+        <div class="menu-panel hidden" data-menu="layanan">
+          <button class="back-button" aria-label="Back">
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          </button>
+          <ul>
+            <li><a href="#penjualan-produk">Penjualan Produk</a></li>
+            <li><a href="#pengujian-mutu">Pengujian Mutu Produk</a></li>
+            <li><a href="#penunjang">Penunjang</a></li>
+            <li><a href="#surveilans-pmk">Surveilans PMK</a></li>
+          </ul>
+        </div>
+        
+        <!-- Panel Submenu Intern -->
+        <div class="menu-panel hidden" data-menu="intern">
+          <button class="back-button" aria-label="Back">
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          </button>
+          <ul>
+            <li><a href="#tim-satlak">Tim Satlak</a></li>
+            <li><a href="#juklak-spi">Juklak SPI</a></li>
+            <li><a href="#lingkungan-pengendalian">Lingkungan Pengendalian</a></li>
+            <li><a href="#identifikasi-risiko">Identifikasi Risiko</a></li>
+            <li><a href="#kegiatan-pengendalian">Kegiatan Pengendalian</a></li>
+            <li><a href="#informasi-komunikasi">Informasi Komunikasi</a></li>
+            <li><a href="#pemantauan-berkelanjutan">Pemantauan Berkelanjutan</a></li>
+            <li><a href="#dokumentasi">Dokumentasi</a></li>
+          </ul>
+        </div>
+        
+        <!-- Panel Submenu Publikasi -->
+        <div class="menu-panel hidden" data-menu="publikasi">
+          <button class="back-button" aria-label="Back">
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          </button>
+          <ul>
+            <li><a href="#berita">Berita</a></li>
+            <li><a href="#artikel">Artikel</a></li>
+            <li><a href="#foto">Foto</a></li>
+            <li><a href="#video">Video</a></li>
+            <li><a href="#buletin">Buletin</a></li>
+          </ul>
+        </div>
+        
+        <!-- Panel Submenu Informasi -->
+        <div class="menu-panel hidden" data-menu="informasi">
+          <button class="back-button" aria-label="Back">
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          </button>
+          <ul>
+            <li><a href="#daftar-informasi-publik">Daftar Informasi Publik</a></li>
+            <li><a href="#informasi-berkala">Informasi Berkala</a></li>
+            <li><a href="#informasi-setiap-saat">Informasi Setiap Saat</a></li>
+            <li><a href="#informasi-serta-merta">Informasi Serta Merta</a></li>
+            <li><a href="#sk-ppid">SK PPID</a></li>
+            <li><a href="#maklumat-pelayanan-informasi">Maklumat Pelayanan Informasi Publik</a></li>
+            <li><a href="#sop">SOP</a></li>
+            <li><a href="#standar-biaya-pelayanan">Standar Biaya Pelayanan</a></li>
+            <li><a href="#data-statistik">Data Statistik</a></li>
+            <li><a href="#pengadaan-barang-jasa">Pengadaan Barang/Jasa</a></li>
+            <li><a href="#regulasi-peraturan">Regulasi/Peraturan</a></li>
+            <li><a href="#internal-link-direktori">Internal Link dan Direktori</a></li>
+            <li><a href="#external-link">External Link</a></li>
+            <li><a href="#pengumuman-lelang">Pengumuman Lelang</a></li>
+            <li><a href="#rekap-pengaduan">Rekap Pengaduan</a></li>
+            <li><a href="#agenda-kegiatan">Agenda Kegiatan</a></li>
+            <li><a href="#pengelolaan-teknologi-informasi">Pengelolaan teknologi Informasi</a></li>
+            <li><a href="#lowongan-kerja">Lowongan Kerja</a></li>
+          </ul>
+        </div>
+        
+        <!-- Panel Submenu Siaga -->
+        <div class="menu-panel hidden" data-menu="siaga">
+          <button class="back-button" aria-label="Back">
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          </button>
+          <ul>
+            <li><a href="#siaga-covid">Siaga COVID-10</a></li>
+            <li><a href="#siaga-pmk">Siaga PMK</a></li>
+          </ul>
+        </div>
+        
+        <!-- Panel Submenu Kontak -->
+        <div class="menu-panel hidden" data-menu="kontak">
+          <button class="back-button" aria-label="Back">
+            <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          </button>
+          <ul>
+            <li><a href="#kontak">Kontak</a></li>
+            <li><a href="#pengaduan">Pengaduan</a></li>
+            <li><a href="#lapor">Lapor</a></li>
+            <li><a href="#whistleblower">Whistleblower's System</a></li>
+            <li><a href="#survey-ikm">Survey IKM</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
     <!-- Popup Container Profil Mobile -->
     <div id="mobile-profil-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden transition-opacity duration-300 opacity-0">
-        <div id="mobile-profil-popup-content" class="bg-white rounded-lg shadow-2xl w-80 max-w-full max-h-[80vh] p-6 transform scale-95 transition-all duration-300 overflow-y-auto center-margin">
+        <div id="mobile-profil-popup-content" class="w-80 max-w-full max-h-[80vh] p-6 transform scale-95 transition-all duration-300 overflow-y-auto center-margin">
             <!-- Profil Menu Items -->
             <a href="sejarah.php" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary">Sejarah</a>
             <a href="visi-misi.php" class="block px-4 py-3 text-left font-semibold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none text-primary">Visi Misi</a>
@@ -399,7 +549,7 @@
 
     <!-- Popup Container Submenu Kelembagaan (dipicu dari Profil) -->
     <div id="mobile-kelembagaan-popup" class="fixed inset-0 flex items-center justify-center z-50 hidden transition-opacity duration-300 opacity-0">
-        <div class="bg-white rounded-lg shadow-2xl w-80 max-w-full max-h-[80vh] p-6 transform scale-95 transition-all duration-300 overflow-y-auto center-margin">
+        <div class="w-80 max-w-full max-h-[80vh] p-6 transform scale-95 transition-all duration-300 overflow-y-auto center-margin">
             <!-- Header Submenu -->
             <div class="flex items-center justify-between mb-4">
                 <button id="mobile-kelembagaan-back" class="text-primary font-bold px-2 py-1 rounded hover:bg-gray-100 transition-all focus:outline-none" aria-label="Kembali ke menu Profil">
