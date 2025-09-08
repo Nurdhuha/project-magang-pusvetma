@@ -116,7 +116,7 @@ body {
             .container-padding { padding: 0 64px; }}
 .navbar-dropdown {
     position: relative;
-    min-height: 36px;
+    min-height: 50px;
     display: flex;
     align-items: center;
 }
@@ -528,28 +528,41 @@ header#header.popup-open {
     transform: rotate(0deg); /* Posisi awal */
 }
 
-/* -- CSS UNTUK ANIMASI IKON MENU (LUCIDE) -- */
-
-/* Saat menu terbuka, target tombol dengan ID #mobile-menu-button */
-#mobile-menu-button.is-active .lucide-menu {
-    opacity: 0;
-    transform: rotate(90deg);
+#mobile-menu-button .icon-menu,
+#mobile-menu-button .icon-close {
+    /* BARIS BARU: Menjadikan kedua ikon absolut di tengah tombol */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Trik untuk centering sempurna */
+    
+    /* Aturan transisi yang sudah ada */
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
 }
 
-#mobile-menu-button.is-active .lucide-x {
+/* Kondisi awal: Ikon Menu terlihat, Ikon X tersembunyi dan berputar */
+#mobile-menu-button .icon-menu {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1); /* Sesuaikan transform awal */
     opacity: 1;
-    transform: rotate(0);
 }
 
-/* Kondisi awal (menu tertutup) */
-#mobile-menu-button .lucide-menu {
-    opacity: 1;
-    transform: rotate(0);
-}
-
-#mobile-menu-button .lucide-x {
+#mobile-menu-button .icon-close {
+    transform: translate(-50%, -50%) rotate(-90deg) scale(0.5); /* Sesuaikan transform awal */
     opacity: 0;
-    transform: rotate(-90deg);
+    pointer-events: none;
+}
+
+/* Kondisi saat menu terbuka (tombol memiliki class 'is-active') */
+#mobile-menu-button.is-active .icon-menu {
+    transform: translate(-50%, -50%) rotate(90deg) scale(0.5); /* Animasi keluar */
+    opacity: 0;
+    pointer-events: none;
+}
+
+#mobile-menu-button.is-active .icon-close {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1); /* Animasi masuk */
+    opacity: 1;
+    pointer-events: auto;
 }
 
 
