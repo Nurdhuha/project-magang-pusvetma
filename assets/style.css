@@ -46,7 +46,7 @@ body {
         /* Modern gradients */
         .gradient-primary { background: linear-gradient(135deg, #440670 0%, #750098 100%); }
         .gradient-accent { background: linear-gradient(135deg, #FFD91F 0%, #F59E0B 100%); }
-        .gradient-secondary { background: linear-gradient(135deg,#750098 0%, #f8f8f8 50%, #440670 100%); }
+        .gradient-secondary { background: linear-gradient(135deg,#4f0088 10%, #fed05d 60%, #ffffff 100%); }
         
         /* Improved focus states for accessibility */
         .focus-ring:focus {
@@ -109,7 +109,7 @@ body {
         
         @media (min-width: 768px) {
             .container-padding { padding: 0 48px; }
-            .section-padding { padding: 120px 0; }
+            .section-padding { padding: 90px 0; }
         }
         
         @media (min-width: 1024px) {
@@ -565,6 +565,66 @@ header#header.popup-open {
     pointer-events: auto;
 }
 
+.navbar-dropdown {
+    position: relative;
+}
+
+/* 2. Buat jembatan transparan menggunakan ::after */
+.navbar-dropdown::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%; /* Posisi persis di bawah tombol */
+    height: 0.5rem; /* Tinggi jembatan (sesuaikan jika perlu) */
+    background-color: transparent; /* Tidak terlihat */
+}
+
+/* 3. Jaga agar menu tetap terbuka saat hover di atas jembatan */
+.navbar-dropdown:hover .navbar-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.submenu-parent {
+    position: relative;
+  }
+  
+  .submenu-parent {
+    position: relative;
+  }
+  
+  /* 2. Sembunyikan submenu secara default */
+  .submenu-panel {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 220ms cubic-bezier(0.4,0,0.2,1), visibility 220ms;
+    transform: translateX(-8px); /* Animasi masuk dari kiri */
+  }
+  
+  /* 3. Buat jembatan transparan di sebelah kanan item induk */
+  .submenu-parent::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%; /* Posisi jembatan persis di kanan induk */
+    width: 1rem; /* Lebar jembatan (sekitar 16px) untuk menutupi celah */
+    height: 100%;
+    background-color: transparent; /* Jembatan tidak terlihat */
+  }
+  
+  /* 4. Tampilkan submenu saat induk ATAU panel submenu itu sendiri di-hover */
+  .submenu-parent:hover > .submenu-panel,
+  .submenu-panel:hover {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
 
 
 
