@@ -1,8 +1,7 @@
 <?php
 // 1. Sertakan file koneksi database kita
 require_once 'assets/config.php';
-require_once 'partial/header.html'; // atau include 'partial/header.html'
-
+// atau include 'partial/header.html'
 // 2. Siapkan dan jalankan query untuk mengambil data 'sejarah'
 $slug = 'sejarah'; // Pengenal untuk halaman yang ingin kita ambil
 $stmt = $pdo->prepare("SELECT * FROM pages WHERE slug = ?");
@@ -37,8 +36,9 @@ if (!$page) {
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/style.css">
-</head>
 <body class="antialiased">
+    <?php include 'partial/header.html'; ?>
+
 
 
 
@@ -62,12 +62,9 @@ if (!$page) {
         <section id="sejarah" class="bg-surface section-padding">
             <div class="container mx-auto container-padding">
                 <div class="text-center space-y-6">
-                    <h2 class="text-3xl md:text-4xl font-bold">Sejarah Singkat</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold"><?php echo htmlspecialchars($page['title']); ?></h2>
                     <p class="text-lg md:text-xl text-gray-700 text-justify">
-                        Institusi ini  pada mulanya bernama Balai Penyelidikan Penyakit Mulut dan Kuku (BPPMK ) yang rencana didirikan pada tahun 1952  bertempat di Jakarta, akan tetapi berbagai kesulitan dan pertimbangan yang dialami pada waktu itu maka BPPMK didirikan di Wonocolo Surabaya berdasar kepada surat keputusan Menteri Pertanian Tanggal 12 September 1952 No. 92/Um/52. BPPMK ini mempunyai tugas utama memproduksi Vaksin Penyakit Mulut dan Kuku (PMK) untuk keperluan Indonesia dan Asia Tenggara.  Selain itu BPPMK dijadikan sebagai Regional Refference Laboratory untuk penelitian dan diagnostik PMK di Asia Tenggara.
-                        Nama BPPMK mengalami perubahan nama pada tahun 1955 menjadi Lembaga Penyidikan Penyakit Mulut dan Kuku (LPPMK). Pada tanggal 24 Juni 1959 kemudian berubah lagi menjadi Lembaga Penyakit Mulut Kuku yang diresmikan oleh Menteri Pertanian Mr. Sadjarwo dengan didampingi Direktur LPMK Dr. FK. Waworoentoe.
-                        Pada tanggal 10 April 1967 Lembaga ini berubah nama lagi menjadi Lembaga Virologi Kehewanan (LVK) yang diresmikan oleh Menteri Pertanian Kabinet Ampera Major Djenderal TNI Sutjipto SH dengan didampingi  Direktur Lembaga Prof. Dr. R. Tanjung Adiwinata. Lembaga ini bertugas tidak hanya menangani Penyakit virus PMK tetapi juga menangani penyakit-penyakit hewan lainnya seperti New Castle Disease (Tetelo) dan Rabies (Anjing Gila).
-                        Pada tanggal 22 September 1978  LVK berubah menjadi Pusat Veterinaria Farma (PUSVETMA) berdasarkan  SK. 
+                    <?php echo nl2br(htmlspecialchars($page['content'])); ?>
                     </p>
                 </div>
             </div>
