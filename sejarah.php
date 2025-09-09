@@ -1,4 +1,20 @@
 <?php
+// 1. Sertakan file koneksi database kita
+require_once 'assets/config.php';
+require_once 'partial/header.html'; // atau include 'partial/header.html'
+
+// 2. Siapkan dan jalankan query untuk mengambil data 'sejarah'
+$slug = 'sejarah'; // Pengenal untuk halaman yang ingin kita ambil
+$stmt = $pdo->prepare("SELECT * FROM pages WHERE slug = ?");
+$stmt->execute([$slug]);
+
+// 3. Ambil datanya
+$page = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Jika halaman tidak ditemukan, tampilkan pesan
+if (!$page) {
+    die("Halaman tidak ditemukan.");
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +40,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- ===== HEADER ===== -->
-    <?php include 'partial/header.html'; ?>
 
 
 <main>
@@ -38,9 +52,9 @@
             </div>
             
             <div class="container mx-auto container-padding relative z-10">
-                <div class="text-center space-y-6">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary">
-                        Sejarah <span class="text-primary">BBVF Pusvetma</span>
+                <div class="text-left space-y-6">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                        Sejarah <span class="text-white">BBVF Pusvetma</span>
                     </h1>
                 </div>
             </div>
