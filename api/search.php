@@ -3,7 +3,8 @@
 header('Content-Type: application/json');
 
 // Sertakan file koneksi database Anda
-require_once 'assets/config.php';
+// PERBAIKAN: Path diubah dari 'assets/config.php' menjadi '../assets/config.php'
+require_once '../assets/config.php';
 
 // Untuk sekarang, kita ambil data 'sejarah' secara spesifik
 $slug_to_find = 'sejarah';
@@ -23,5 +24,7 @@ try {
 
 } catch (PDOException $e) {
     // Jika ada error database, kembalikan pesan error
-    echo json_encode(['error' => 'Query database gagal.']);
+    // Menambahkan pesan error dari PDO untuk debugging yang lebih mudah
+    echo json_encode(['error' => 'Query database gagal: ' . $e->getMessage()]);
 }
+?>
